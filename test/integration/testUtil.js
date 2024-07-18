@@ -127,7 +127,7 @@ module.exports.checkError = function (err) {
   assert.ok(!err, JSON.stringify(err));
 };
 
-module.exports.executeQueryAndVerify = function (connection, sql, expected, callback, bindArray, normalize, strict) {
+module.exports.executeQueryAndVerify = function (connection, sql, expected, callback, bindArray, normalize, strict, fetchAsString = []) {
   // Sometimes we may not want to normalize the row first
   normalize = (typeof normalize !== 'undefined' && normalize != null) ? normalize : true;
   strict = (typeof strict !== 'undefined' && strict != null) ? strict : true;
@@ -313,3 +313,5 @@ module.exports.createRandomFileName = function ( option = { prefix: '', postfix:
   const fileName = `${option.prefix || ''}${randomName}${option.postfix || ''}${option.extension || ''}`;
   return fileName;
 };
+
+module.exports.normalizeRowObject = normalizeRowObject;
