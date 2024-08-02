@@ -127,7 +127,7 @@ module.exports.checkError = function (err) {
   assert.ok(!err, JSON.stringify(err));
 };
 
-module.exports.executeQueryAndVerify = function (connection, sql, expected, callback, bindArray, normalize, strict, fetchAsString = []) {
+module.exports.executeQueryAndVerify = function (connection, sql, expected, callback, bindArray, normalize, strict) {
   // Sometimes we may not want to normalize the row first
   normalize = (typeof normalize !== 'undefined' && normalize != null) ? normalize : true;
   strict = (typeof strict !== 'undefined' && strict != null) ? strict : true;
